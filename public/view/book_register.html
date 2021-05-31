@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="css/normalice.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <style type="text/css" rel="stylesheet"> .error{ color: red; font-size: 11px;} </style>
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div class="popup" id=popup>
+            <a href="#" id="btn-close-popup" class="btn-close-popup"><i class="fas fa-times"></i></a>
+            <h3>Autores</h3>
+            <form action="" name="authors"> 
+                <div class="content-input">
+                    <label for="authorValue">Ingresa nombre</label>
+                    <!--input type="text" id="authorValue" name="authorValue" value=""> 
+                    <input type="button" id="buscar" name="buscar" value="Buscar" onclick="buscarPorValor()"--> 
+                </div>
+                <div id="informacion" style="width: 100%; height:400px; overflow: scroll;">
+                    <b>Selecciona el Author</b>
+                </div>
+                <div class="content-btn">
+                    <a href="#" class="btn-submit ok" onclick="addAuthorSelected()">Aceptar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <header class="header">
+
+    </header>
+    <main>
+        <!--../controllers/registerBook.php                   -->
+        <!--          onsubmit="return validationAllDataObligatories()"             -->
+        <form class="registerBook" id="form01" action="" >
+            <div class="titulo">
+                <i class="fas fa-book fa-3x icon-book"></i>
+                <h2>Registro de Libro</h2>
+            </div>
+            
+            <div class="content-items">
+                <label for="nameBook">Nombre o título de Libro</label><span id="messageNameBook" class="error"></span>
+                <div class="items">
+                    <i class="fas fa-bookmark"></i>
+                    <input type="text" id="nameBook" name="nameBook" placeholder="">
+                </div>
+            </div>
+            <div class="content-items">
+                <label for="ISBN">Ingrese el código ISBN</label> <span id="messageISBN" class="error"></span>
+                <div class="items">
+                    <i class="fas fa-barcode"></i>
+                    <input type="text" id="ISBN" name="ISBN" placeholder="">
+                </div>
+            </div>
+            <div class="content-items">
+                <label for="numPages">Número de páginas.</label><span id="menssageNumPages" class="error"></span>
+                <div class="items">
+                    <i class="fas fa-book-reader"></i>
+                    <input type="number" id="numPages" name="numPages" placeholder="">
+                </div>
+            </div>
+            <div class="content-items content-chapters">
+                
+                <h2>Capitulos</h2>
+                <span id="messageChapters" class="error"></span>
+                <div class="items-chapter">
+                    <div class="contens-items">
+                        <label for="numberChapter">Número de Capitulo:</label>
+                        <span id="messageNumberChapter" class="error"></span>
+                        <div class="items">
+                            <input type="number" name="numberChapter" id="numberChapter">
+                        </div>
+                    </div>
+                    <div class="contens-items"> <!--Input Title-->
+                        <label for="">Titulo Capitulo:</label>
+                        <span id="messageTitleChapter" class="error"></span>
+                        <div class="items">
+                            <input type="text" name="titleChapter" id="titleChapter"> 
+                        </div>
+                    </div>
+                    <div class="contens-items" > <!--Input Autor-->
+                        <label for="">Autor:</label><a href="#" id="btn-open-popup" class="btn-open-popup" ><i class="fas fa-search fa-1x icon-btn" onclick="searchAllAuthors()"></i></a> 
+                        <span id="messageAuthorChapter" class="error"></span>
+                        <div class="items" id="inforAuthorChapter">
+                                
+                        </div>
+                    </div>
+                    <div class="btn-add-chapter"> <!--Botón Agregación Chapter-->
+                        <a href="#" onclick="addChapterToTable()"><i class="fas fa-plus-square fa-3x"></i></a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Número de Capitulo</th>
+                                <th>Titulo Capitulo</th>
+                                <th>Autor</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="chapters">
+
+                        </tbody>
+                    </table>
+                    
+                      
+                </div>
+                
+            </div>
+            <a href="#" onclick="validationAllDataObligatories()"><i class="fas fa-save fa-2x"></i></a>
+            <!--<button class="btn-register" onclick="validationAllDataObligatories()"><i class="fas fa-save fa-2x"></i>Registrar</button-->
+            <div id="response-container">
+
+            </div>
+        </form>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="javascript/jquery-3.6.0.min.js"></script>
+    <script src="javascript/popup.js"></script>
+</body>
+</html>

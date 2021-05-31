@@ -1,0 +1,50 @@
+/*
+MySQL Backup
+Source Server Version: 5.7.31
+Source Database: biblioteca
+Date: 29/5/2021 09:41:21
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+--  Table structure for `author`
+-- ----------------------------
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
+  `author_code` int(11) NOT NULL AUTO_INCREMENT,
+  `author_name` varchar(255) NOT NULL,
+  `author_nationality` varchar(255) NOT NULL,
+  PRIMARY KEY (`author_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `book`
+-- ----------------------------
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book` (
+  `book_code` int(11) NOT NULL,
+  `book_name` varchar(255) NOT NULL,
+  `book_isbn` varchar(20) NOT NULL,
+  `book_num_pages` int(250) NOT NULL,
+  PRIMARY KEY (`book_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `chapter`
+-- ----------------------------
+DROP TABLE IF EXISTS `chapter`;
+CREATE TABLE `chapter` (
+  `chapter_code` int(11) NOT NULL AUTO_INCREMENT,
+  `chapter_num` int(100) NOT NULL,
+  `chapter_title` varchar(255) NOT NULL,
+  `author_code` int(11) NOT NULL,
+  `book_code` int(11) NOT NULL,
+  PRIMARY KEY (`chapter_code`),
+  KEY `chapter-author` (`author_code`),
+  KEY `chapter-book` (`book_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records 
+-- ----------------------------

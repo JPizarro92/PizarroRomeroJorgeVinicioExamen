@@ -1,0 +1,51 @@
+/*
+MySQL Backup
+Source Server Version: 5.7.31
+Source Database: biblioteca
+Date: 30/5/2021 23:01:41
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+--  Table structure for `author`
+-- ----------------------------
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
+  `author_code` int(11) NOT NULL AUTO_INCREMENT,
+  `author_name` varchar(255) NOT NULL,
+  `author_nationality` varchar(255) NOT NULL,
+  PRIMARY KEY (`author_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `book`
+-- ----------------------------
+DROP TABLE IF EXISTS `book`;
+CREATE TABLE `book` (
+  `book_code` int(11) NOT NULL,
+  `book_name` varchar(255) NOT NULL,
+  `book_isbn` varchar(20) NOT NULL,
+  `book_num_pages` int(250) NOT NULL,
+  PRIMARY KEY (`book_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `chapter`
+-- ----------------------------
+DROP TABLE IF EXISTS `chapter`;
+CREATE TABLE `chapter` (
+  `chapter_code` int(11) NOT NULL AUTO_INCREMENT,
+  `chapter_num` int(100) NOT NULL,
+  `chapter_title` varchar(255) NOT NULL,
+  `author_code` int(11) NOT NULL,
+  `book_code` int(11) NOT NULL,
+  PRIMARY KEY (`chapter_code`),
+  KEY `chapter-author` (`author_code`),
+  KEY `chapter-book` (`book_code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records 
+-- ----------------------------
+INSERT INTO `author` VALUES ('1','Chinghiz Aitmatov\r\n','Kirguistán\r\n'), ('2','Ahmet Altan\r\n','Turquía\r\n'), ('3','Aharon Appelfeld\r\n','Israel\r\n'), ('4','Paul Auster\r\n','Estados Unidos\r\n'), ('5','Félix de Azúa\r\n','España\r\n'), ('6','Julian Barnes\r\n','Reino Unido\r\n'), ('7','Simin Behbahani\r\n','Irán\r\n'), ('8','Robert Bly\r\n','Estados Unidos\r\n'), ('9','André Brink\r\n','Sudáfrica\r\n'), ('10','Suzanne Brøgger\r\n','Dinamarca\r\n'), ('11','A. S. Byatt\r\n','Reino Unido\r\n'), ('12','Peter Carey\r\n','Australia\r\n'), ('13','Martha Cerda\r\n','México\r\n'), ('14','Maryse Condé\r\n','Guadalupe (Francia)\r\n'), ('15','Mia Couto\r\n','Mozambique\r\n'), ('16','Jim Crace\r\n','Reino Unido\r\n'), ('17','Bei Dao\r\n','China\r\n'), ('18','Mahmoud Dowlatabadi\r\n','Irán\r\n'), ('19','Gabriel García Márquez','Colombia'), ('20','Jean Echenoz\r\n','Francia\r\n'), ('21','Hans Magnus Enzensberger\r\n','Alemania\r\n'), ('22','Mario Vargas Llosa','Perú'), ('23','Octavio Paz','México'), ('24','Julio Cortázar','Argentina'), ('25','Isabel Allende','Chile'), ('26','Jorge Luis Borges','Argentina'), ('27','José de la Cuadra','Ecuador'), ('28','Ernesto Sábato','Argentina'), ('29','Luis Alfredo Martinez','Ecuador'), ('30','Jorge Carrera Andrade','Ecuador');
